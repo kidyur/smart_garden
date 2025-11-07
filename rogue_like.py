@@ -6,7 +6,6 @@ ROAD    = '.'
 WALL    = '#'
 PLAYER  = 'O'
 
-
 class Player:
     health: int = 3
     experience: int = 0

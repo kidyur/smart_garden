@@ -1,27 +1,8 @@
 
-class Stack():
-    __stack: list = []
-
-    def __init__(self, st: list = []):
-        self.__stack = st
-
-    def push(self, val: any):
-        self.__stack.insert(0, val)
-
-    def get(self):
-        if (len(self.__stack) == 0):
-            raise (IndexError)
-        return self.__stack[0]
-    
-    def pop(self):
-        self.__stack.pop(0)
-    
-
 class Calculator_int():
     """
     Calculator supports:
-        1) storing two integers in memory
-        2) calculating arithmetic operations with them
+        1) calculating arithmetic operations with them
 
     It raises TypeError if user tries to set float numbers
 
@@ -35,13 +16,8 @@ class Calculator_int():
         multiply()
         divide()
 
-        All methods calculate their operations and save 
-        results in integer memory stack (resultsMemory)
-
     (*) Operation example: __main_num + __oper_num
     """
-
-    results_memory: list = Stack([])
 
     __main_num: int = 0
     __oper_num: int = 0
@@ -68,28 +44,28 @@ class Calculator_int():
             raise(TypeError)
         self.__oper_num = val
 
-    def summarize(self):
+    def summarize(self) -> int:
         """
         Saves sum in memory stack.
         """
         sum: int = self.__main_num + self.__oper_num
-        self.results_memory.push(sum)
+        return sum
 
-    def subtract(self):
+    def subtract(self) -> int:
         """
         Saves difference in memory stack. 
         """
         diff: int = self.__main_num - self.__oper_num
-        self.results_memory.push(diff)
+        return diff
 
-    def multiply(self):
+    def multiply(self) -> int:
         """
         Saves product in memory stack. 
         """
         prod: int = self.__main_num * self.__oper_num
-        self.results_memory.push(prod)
+        return prod
 
-    def divide(self):
+    def divide(self) -> int:
         """ 
         Saves quotient in memory stack.
         
@@ -102,6 +78,5 @@ class Calculator_int():
 
 
 calc = Calculator_int(4, 2)
-calc.results_memory = 1
-calc.results_memory.get()
+print(calc.summarize())
 
